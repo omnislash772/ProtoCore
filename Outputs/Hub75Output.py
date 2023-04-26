@@ -5,7 +5,7 @@ class Hub75Output(Output.Output):
     
     def __init__(self, name, **kwargs):
         super().__init__(name, **kwargs)
-        from rgbmatrix import RGBMatrix, RGBMatrixOptions
+        from rgbmatrix import RGBMatrix, RGBMatrixOptions # type: ignore
 
         options = RGBMatrixOptions()
         options.rows = self.rows
