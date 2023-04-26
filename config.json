@@ -11,8 +11,8 @@
             "Name": "FaceEyes",
             "Type": "AnimatedImageSource",
             "Args": {
-                "fileName": "omni_eyes2.png",
-                "fps": 30
+                "fileName": "face_eyes.gif",
+                "sourceVar": "EyesBlinkTimer.Frame"
             }
         },
         {
@@ -38,8 +38,18 @@
             "Name": "MicSensor",
             "Type": "MicSource",
             "Args": {
-                "inputdevice": "SteelSeries Sonar - Microphone",
+                "inputDevice": "SteelSeries Sonar - Microphone",
                 "gain": 1
+            }
+        },
+        {
+            "Name": "EyesBlinkTimer",
+            "Type": "BlinkTimerSource",
+            "Args": {
+                "blinkTime": 0.4,
+                "frameCount": 13,
+                "blinkMinDelay": 5,
+                "blinkMaxDelay": 7
             }
         }
     ],

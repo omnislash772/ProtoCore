@@ -5,23 +5,15 @@ class MicSource(InputSource.InputSource):
     def __init__(self, name, **kwargs):
         super().__init__(name, **kwargs)
 
-        if "gain" in kwargs.keys() and (isinstance(kwargs["gain"], float) or isinstance(kwargs["gain"], int)):
-            self.gain = kwargs["gain"]
-        else:
-            self.gain = 1.0
-        if "inputdevice" in kwargs.keys() and isinstance(kwargs["inputdevice"], str):
-            deviceList = list(sounddevice.query_devices())
-            deviceName = kwargs["inputdevice"]
-            if len([d for d in deviceList if d['name'] == deviceName]) > 0:
-                self.inputdevice = kwargs["inputdevice"]
-            else:
-                self.inputdevice = sounddevice.query_devices()[sounddevice.default.device[0]]["name"]
-                print(self.name + ": Invalid 'inputdevice' specified in Args, using default: " + self.inputdevice)
-        else:
-            self.inputdevice = sounddevice.query_devices()[sounddevice.default.device[0]]["name"]
-            print(self.name + ": No 'inputdevice' specified in Args, using default: " + self.inputdevice)
+        deviceList = [d["name"] for d in sounddevice.query_devices()]
+        if self.inputDevice == "default":
+            self.inputDevice = deviceList[sounddevice.default.device[0]]
+
+        if self.inputDevice not in deviceList:
+            self.inputDevice = deviceList[sounddevice.default.device[0]]
+            print(self.name + ": Invalid 'inputDevice' specified in Args, using default: " + self.inputDevice)
         
-        self.stream = sounddevice.InputStream(callback=self.audio_callback, device=self.inputdevice)
+        self.stream = sounddevice.InputStream(callback=self.audio_callback, device=self.inputDevice)
         
         self.voiceCounter = 0
         self.maxvol = 0
@@ -44,3 +36,14 @@ class MicSource(InputSource.InputSource):
     
     def getValues(self):
         return {self.name + ".State": self.state, self.name + ".MaxVol": self.maxvol}
+    
+    def getArgs(self):
+        return {
+            "gain": {
+                "types": [int, float],
+                "default": 1
+            },
+            "inputDevice": {
+                "types": [str],
+            }
+        }
