@@ -11,7 +11,7 @@
             "Name": "FaceEyes",
             "Type": "AnimatedImageSource",
             "Args": {
-                "fileName": "face_eyes.gif",
+                "fileName": "omni_eyes2.png",
                 "fps": 30
             }
         },
@@ -20,7 +20,7 @@
             "Type": "AnimatedImageSource",
             "Args": {
                 "fileName": "face_mouth.gif",
-                "fps": 30
+                "sourceVar": "MicSensor.State"
             }
         },
         {

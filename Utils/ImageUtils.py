@@ -18,6 +18,6 @@ def __has_transparancy(img):
 def LoadImage(fileName):
     img = Image.open(fileName)
     rgba = img.convert("RGBA")
-    if __has_transparancy(rgba):
+    if __has_transparancy(rgba) and not hasattr(img, "n_frames"):
         return rgba
     return img

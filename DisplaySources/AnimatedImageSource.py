@@ -24,15 +24,17 @@ class AnimatedImageSource(DisplaySource.DisplaySource):
         
         self.fileName = kwargs["fileName"]
         self.image = ImageUtils.LoadImage(self.fileName)
+
+        self.imageframes = []
+        for i in range(self.image.n_frames):
+            self.image.seek(i)
+            self.imageframes.append(self.image.copy().convert("RGBA"))
     
     def Output(self, vars):
         if self.fps != None:
             frame = int((time.time()-self.startTime)/(1/self.fps)) % self.image.n_frames
-            self.image.seek(frame)
-            return self.image.copy().convert("RGBA")
-        
-        self.image.seek(int(vars[self.sourceVar]) % self.image.n_frames)
-        return self.image
+            return self.imageframes[frame]
+        return self.imageframes[int(vars[self.sourceVar]) % self.image.n_frames]
     
     def getName(self):
         return f"Static Image Source: '{self.fileName}'"
