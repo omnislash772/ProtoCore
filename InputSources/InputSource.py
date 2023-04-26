@@ -1,3 +1,5 @@
+import abc
+
 class InputSource():
     def __init__(self, name, **kwargs):
         self.name = name
@@ -17,8 +19,10 @@ class InputSource():
             
             setattr(self, arg, value)
 
+    @abc.abstractclassmethod
     def getValues(self):
         pass
-
+    
+    @abc.abstractclassmethod
     def getArgs(self):
         pass
