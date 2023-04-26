@@ -1,5 +1,5 @@
 {
-    "Objects": [
+    "DisplaySources": [
         {
             "Name": "FaceBackground",
             "Type": "StaticImageSource",
@@ -22,11 +22,10 @@
                 "fileName": "face_mouth.gif",
                 "sourceVar": "MicSensor.State"
             }
-        },
-        {
-            "Name": "DemoOutput",
-            "Type": "CvOutput"
-        },
+        }
+    ],
+
+    "InputSources": [
         {
             "Name": "BaseTimer",
             "Type": "TimerSource",
@@ -51,6 +50,13 @@
                 "blinkMinDelay": 5,
                 "blinkMaxDelay": 7
             }
+        }
+    ],
+
+    "Outputs": [
+        {
+            "Name": "DemoOutput",
+            "Type": "CvOutput"
         }
     ],
 

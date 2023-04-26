@@ -45,5 +45,6 @@ class MicSource(InputSource.InputSource):
             },
             "inputDevice": {
                 "types": [str],
+                "default": "default"
             }
         }

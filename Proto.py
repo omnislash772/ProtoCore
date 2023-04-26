@@ -32,6 +32,12 @@ def loadObjects(objectDesc):
             print(f"Failed to load Object: {o['Name']}: {repr(e)}")
     return objects
 
+def loadObjectList(descList, config):
+    output = {}
+    for desc in descList:
+        output.update(loadObjects(config[desc]))
+    return output
+
 def getVars(objects):
     vars = {}
     for o in objects.values():
@@ -77,7 +83,8 @@ def sendOutputs(objects, config, frames):
 if __name__ == "__main__":
     loadModules()
     config = json.load(open("config.json"))
-    objects = loadObjects(config["Objects"])
+    configGroups = ["DisplaySources", "InputSources", "Outputs"]
+    objects = loadObjectList(configGroups, config)
     transforms = loadObjects(config["Transforms"])
     while(True):
         vars = getVars(objects)
