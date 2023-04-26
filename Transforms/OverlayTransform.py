@@ -26,5 +26,8 @@ class OverlayTransform(Transform.Transform):
                 x = i["x"]
             if "y" in i.keys():
                 y = i["y"]
-            img.paste(frame, (x, y), frame)
+            try:
+                img.paste(frame, (x, y), frame)
+            except ValueError:
+                img.paste(frame, (x, y))
         return img
