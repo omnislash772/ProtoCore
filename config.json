@@ -1,0 +1,86 @@
+{
+    "Objects": [
+        {
+            "Name": "LmaoYiff",
+            "Type": "StaticImageSource",
+            "Args": {
+                "fileName": "test.png"
+            }
+        },
+        {
+            "Name": "AnimatedTest",
+            "Type": "AnimatedImageSource",
+            "Args": {
+                "fileName": "test4.gif",
+                "fps": 30
+            }
+        },
+        {
+            "Name": "FaceTest",
+            "Type": "StaticImageSource",
+            "Args": {
+                "fileName": "defaultstatic.png"
+            }
+        },
+        {
+            "Name": "TransparencyTest",
+            "Type": "StaticImageSource",
+            "Args": {
+                "fileName": "HAPPI.png"
+            }
+        },
+        {
+            "Name": "DemoOutput",
+            "Type": "CvOutput"
+        },
+        {
+            "Name": "DemoOutput2",
+            "Type": "CvOutput"
+        },
+        {
+            "Name": "BaseTimer",
+            "Type": "TimerSource",
+            "Args": {
+                "resolution": 4
+            }
+        },
+        {
+            "Name": "MicSensor",
+            "Type": "MicSource",
+            "Args": {
+                "inputdevice": "SteelSeries Sonar - Microphone",
+                "gain": 1
+            }
+        }
+    ],
+
+    "Mappings": [
+        {
+            "Input": "FaceOverlay",
+            "Output": "DemoOutput"
+        },
+        {
+            "Input": "AnimatedTest",
+            "Output": "DemoOutput2"
+        }
+    ],
+
+    "Transforms": [
+        {
+            "Name": "FaceOverlay",
+            "Type": "OverlayTransform",
+            "Args":{
+                "inputs": [
+                    {
+                        "name": "AnimatedTest"
+                    },
+                    {
+                        "name": "TransparencyTest",
+                        "x": 150,
+                        "y": 150
+                    }
+                ]
+            }
+        }
+    ]
+}
