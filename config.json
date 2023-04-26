@@ -1,40 +1,30 @@
 {
     "Objects": [
         {
-            "Name": "LmaoYiff",
+            "Name": "FaceBackground",
             "Type": "StaticImageSource",
             "Args": {
-                "fileName": "test.png"
+                "fileName": "face_BG.png"
             }
         },
         {
-            "Name": "AnimatedTest",
+            "Name": "FaceEyes",
             "Type": "AnimatedImageSource",
             "Args": {
-                "fileName": "test4.gif",
+                "fileName": "face_eyes.gif",
                 "fps": 30
             }
         },
         {
-            "Name": "FaceTest",
-            "Type": "StaticImageSource",
+            "Name": "FaceMouth",
+            "Type": "AnimatedImageSource",
             "Args": {
-                "fileName": "defaultstatic.png"
-            }
-        },
-        {
-            "Name": "TransparencyTest",
-            "Type": "StaticImageSource",
-            "Args": {
-                "fileName": "HAPPI.png"
+                "fileName": "face_mouth.gif",
+                "fps": 30
             }
         },
         {
             "Name": "DemoOutput",
-            "Type": "CvOutput"
-        },
-        {
-            "Name": "DemoOutput2",
             "Type": "CvOutput"
         },
         {
@@ -72,12 +62,17 @@
             "Args":{
                 "inputs": [
                     {
-                        "name": "AnimatedTest"
+                        "name": "FaceBackground"
                     },
                     {
-                        "name": "TransparencyTest",
-                        "x": 150,
-                        "y": 150
+                        "name": "FaceEyes",
+                        "x": 0,
+                        "y": 0
+                    },
+                    {
+                        "name": "FaceMouth",
+                        "x": 0,
+                        "y": 16
                     }
                 ]
             }

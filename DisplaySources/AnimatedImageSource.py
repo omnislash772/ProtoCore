@@ -29,7 +29,7 @@ class AnimatedImageSource(DisplaySource.DisplaySource):
         if self.fps != None:
             frame = int((time.time()-self.startTime)/(1/self.fps)) % self.image.n_frames
             self.image.seek(frame)
-            return self.image
+            return self.image.copy().convert("RGBA")
         
         self.image.seek(int(vars[self.sourceVar]) % self.image.n_frames)
         return self.image
