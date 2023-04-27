@@ -61,8 +61,10 @@ def runTransforms(transforms, frames, vars):
         for t in transforms.values():
             if t.name in newFrames.keys():
                 continue
-            if not all(item["name"] in newFrames.keys() for item in t.inputs):
-                continue
+            for input in t.inputs:
+                if input["name"] not in newFrames.keys():
+                    continue
+            
             result = t.process(newFrames, vars)
             newFrames.update({t.name: result})
             updateCount = updateCount + 1

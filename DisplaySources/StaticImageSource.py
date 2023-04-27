@@ -7,7 +7,7 @@ class StaticImageSource(DisplaySource.DisplaySource):
     def __init__(self, name, **kwargs):
         super().__init__(name, **kwargs)
         self.fileName = kwargs["fileName"]
-        self.image = ImageUtils.LoadImage(self.fileName)
+        self.image = ImageUtils.LoadImage(self.fileName).convert("RGBA")
     
     def Output(self, vars):
         return self.image

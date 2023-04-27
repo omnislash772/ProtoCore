@@ -1,6 +1,7 @@
 from Outputs import Output
 import cv2
 import numpy as np
+from PIL.Image import Resampling
 
 class CvOutput(Output.Output):
     
@@ -11,7 +12,7 @@ class CvOutput(Output.Output):
         return "Tk output"
     
     def Input(self, frame):
-        frame = frame.resize((frame.width*self.scale, frame.height*self.scale))
+        frame = frame.resize((frame.width*self.scale, frame.height*self.scale), resample=Resampling.NEAREST)
         cv2.imshow(self.name, cv2.cvtColor(np.array(frame), cv2.COLOR_RGB2BGR))
         cv2.waitKey(1)
     

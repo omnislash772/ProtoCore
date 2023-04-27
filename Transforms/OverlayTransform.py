@@ -3,10 +3,6 @@ from Transforms import Transform
 class OverlayTransform(Transform.Transform):
     def __init__(self, name, **kwargs):
         super().__init__(name, **kwargs)
-        
-        if "inputs" not in kwargs.keys() or not isinstance(kwargs["inputs"], list):
-            print(self.name + ": Missing inputs or inputs not list")
-        self.inputs = kwargs["inputs"]
     
     def process(self, inputFrames, vars):
         img = None
@@ -31,3 +27,10 @@ class OverlayTransform(Transform.Transform):
             except ValueError:
                 img.paste(frame, (x, y))
         return img
+
+    def getArgs(self):
+        return {
+            "inputs": {
+                "types": [list]
+            }
+        }

@@ -30,6 +30,13 @@
                 "fileName": "Images/led_scroll.gif",
                 "fps": 10
             }
+        },
+        {
+            "Name": "HudBackground",
+            "Type": "StaticImageSource",
+            "Args": {
+                "fileName": "Images/HUD/BG.png"
+            }
         }
     ],
 
@@ -75,6 +82,13 @@
             "Args": {
                 "scale": 16
             }
+        },
+        {
+            "Name": "HudOutput",
+            "Type": "CvOutput",
+            "Args": {
+                "scale": 2
+            }
         }
     ],
 
@@ -86,6 +100,10 @@
         {
             "Input": "LedScroll",
             "Output": "ExampleNeoPixel"
+        },
+        {
+            "Input": "TextOverlay",
+            "Output": "HudOutput"
         }
     ],
 
@@ -109,6 +127,21 @@
                         "y": 16
                     }
                 ]
+            }
+        },
+        {
+            "Name": "TextOverlay",
+            "Type": "TextOverlayTransform",
+            "Args": {
+                "inputs": [
+                    {
+                        "name": "HudBackground"
+                    }
+                ],
+                "text": "{0[MicSensor.MaxVol]} Vol",
+                "offsetX": 40,
+                "offsetY": 6,
+                "color": "#FFFFFF"
             }
         }
     ]
