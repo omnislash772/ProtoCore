@@ -135,13 +135,46 @@
             "Args": {
                 "inputs": [
                     {
-                        "name": "HudBackground"
+                        "name": "HudImageOverlay"
                     }
                 ],
                 "text": "{0[MicSensor.MaxVol]} Vol",
                 "offsetX": 40,
                 "offsetY": 6,
                 "color": "#FFFFFF"
+            }
+        },
+        {
+            "Name": "HudImageOverlay",
+            "Type": "OverlayTransform",
+            "Args": {
+                "inputs": [
+                    {
+                        "name": "HudBackground"
+                    },
+                    {
+                        "name": "HUD_FaceResize",
+                        "x": 10,
+                        "y": 40
+                    },
+                    {
+                        "name": "HUD_FaceResize",
+                        "x": 120,
+                        "y": 40
+                    }
+                ]
+            }
+        },
+        {
+            "Name": "HUD_FaceResize",
+            "Type": "ResizeTransform",
+            "Args": {
+                "inputs":[
+                    {
+                        "name": "FaceOverlay"
+                    }
+                ],
+                "scale": 1.71875
             }
         }
     ]
