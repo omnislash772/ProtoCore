@@ -22,6 +22,14 @@
                 "fileName": "face_mouth.gif",
                 "sourceVar": "MicSensor.State"
             }
+        },
+        {
+            "Name": "LedScroll",
+            "Type": "AnimatedImageSource",
+            "Args": {
+                "fileName": "led_scroll.gif",
+                "fps": 10
+            }
         }
     ],
 
@@ -55,19 +63,29 @@
 
     "Outputs": [
         {
-            "Name": "DemoOutput",
-            "Type": "CvOutput"
+            "Name": "FaceOutput",
+            "Type": "CvOutput",
+            "Args": {
+                "scale": 4
+            }
+        },
+        {
+            "Name": "ExampleNeoPixel",
+            "Type": "CvOutput",
+            "Args": {
+                "scale": 16
+            }
         }
     ],
 
     "Mappings": [
         {
             "Input": "FaceOverlay",
-            "Output": "DemoOutput"
+            "Output": "FaceOutput"
         },
         {
-            "Input": "AnimatedTest",
-            "Output": "DemoOutput2"
+            "Input": "LedScroll",
+            "Output": "ExampleNeoPixel"
         }
     ],
 

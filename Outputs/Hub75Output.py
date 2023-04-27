@@ -18,7 +18,7 @@ class Hub75Output(Output.Output):
         self.matrix = RGBMatrix(options=options)
 
     def getName(self):
-        return "Tk output"
+        return "Hub75Output"
     
     def Input(self, frame):
         if frame.width != self.cols*2 and frame.width == self.cols:
