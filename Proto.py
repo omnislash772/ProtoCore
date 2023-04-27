@@ -75,10 +75,7 @@ def sendOutputs(objects, config, frames):
             continue
         if m["Input"] not in frames.keys():
             continue
-        objects[m["Output"]].Input(frames[m["Input"]])
-
-            
-
+        objects[m["Output"]].Input(frames[m["Input"]])        
 
 if __name__ == "__main__":
     loadModules()

@@ -4,14 +4,14 @@
             "Name": "FaceBackground",
             "Type": "StaticImageSource",
             "Args": {
-                "fileName": "face_BG.png"
+                "fileName": "Images/face_BG.png"
             }
         },
         {
             "Name": "FaceEyes",
             "Type": "AnimatedImageSource",
             "Args": {
-                "fileName": "face_eyes.gif",
+                "fileName": "Images/face_eyes.gif",
                 "sourceVar": "EyesBlinkTimer.Frame"
             }
         },
@@ -19,7 +19,7 @@
             "Name": "FaceMouth",
             "Type": "AnimatedImageSource",
             "Args": {
-                "fileName": "face_mouth.gif",
+                "fileName": "Images/face_mouth.gif",
                 "sourceVar": "MicSensor.State"
             }
         },
@@ -27,7 +27,7 @@
             "Name": "LedScroll",
             "Type": "AnimatedImageSource",
             "Args": {
-                "fileName": "led_scroll.gif",
+                "fileName": "Images/led_scroll.gif",
                 "fps": 10
             }
         }
