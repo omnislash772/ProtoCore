@@ -65,6 +65,18 @@
                 "blinkMinDelay": 5,
                 "blinkMaxDelay": 7
             }
+        },
+        {
+            "Name": "CpuTempSource",
+            "Type": "CpuTempSource"
+        },
+        {
+            "Name": "ExternalTempSource",
+            "Type": "ExternalTempSource"
+        },
+        {
+            "Name": "ClockSource",
+            "Type": "ClockSource"
         }
     ],
 
@@ -131,17 +143,68 @@
         },
         {
             "Name": "TextOverlay",
-            "Type": "TextOverlayTransform",
+            "Type": "MultiTextOverlayTransform",
             "Args": {
                 "inputs": [
                     {
                         "name": "HudImageOverlay"
                     }
                 ],
-                "text": "{0[MicSensor.MaxVol]} Vol",
-                "offsetX": 40,
-                "offsetY": 6,
-                "color": "#FFFFFF"
+                "texts": [
+                    {
+                        "text": "{0[MicSensor.MaxVol]} Vol",
+                        "offsetX": 40,
+                        "offsetY": 6,
+                        "color": "#FFFFFF"
+                    },
+                    {
+                        "text": "{0[ExternalTempSource.Temp]}C",
+                        "offsetX": 90,
+                        "offsetY": 6,
+                        "color": "#FFFFFF"
+                    },
+                    {
+                        "text": "{0[CpuTempSource.Value]}C",
+                        "offsetX": 137,
+                        "offsetY": 6,
+                        "color": "#FFFFFF"
+                    },
+                    {
+                        "text": "{0[ExternalTempSource.Humid]}%",
+                        "offsetX": 178,
+                        "offsetY": 6,
+                        "color": "#FFFFFF"
+                    },
+                    {
+                        "text": "{0[ClockSource.Clock]}",
+                        "offsetX": 60,
+                        "offsetY": 23,
+                        "color": "#6D1EC3"
+                    },
+                    {
+                        "text": "{0[ClockSource.Date]}",
+                        "offsetX": 125,
+                        "offsetY": 23,
+                        "color": "#6D1EC3"
+                    },
+                    {
+                        "text": "Schedule",
+                        "offsetX": 82,
+                        "offsetY": 136,
+                        "color": "#6D1EC3",
+                        "font": "Images/HUD/FreeSansBold.ttf",
+                        "fontSize": 16
+                    },
+                    {
+                        "text": "Joe Biden",
+                        "offsetX": 10,
+                        "offsetY": 151,
+                        "color": "#6D1EC3",
+                        "align": "center",
+                        "fontSize": 16
+                    }
+                ]
+                
             }
         },
         {
