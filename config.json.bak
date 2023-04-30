@@ -83,33 +83,23 @@
     "Outputs": [
         {
             "Name": "FaceOutput",
-            "Type": "Hub75Output",
+            "Type": "CvOutput",
             "Args": {
-                "rows": 32,
-                "cols": 64,
-                "chain_length": 2,
-                "parallel": 1,
-                "gpio_slowdown": 2
+                "scale": 4
             }
         },
         {
-            "Name": "NeoPixelOutput",
-            "Type": "NeoPixelOutput",
+            "Name": "ExampleNeoPixel",
+            "Type": "CvOutput",
             "Args": {
-                "pin": 18,
-                "ledCount": 24,
-                "chainCount": 2
+                "scale": 16
             }
         },
         {
             "Name": "HudOutput",
-            "Type": "ST7789Output",
+            "Type": "CvOutput",
             "Args": {
-                "wdith": 280,
-                "height": 240,
-                "xBuffer": 20,
-                "yBuffer": 0,
-                "rotate": 3
+                "scale": 2
             }
         }
     ],
@@ -121,7 +111,7 @@
         },
         {
             "Input": "LedScroll",
-            "Output": "NeoPixelOutput"
+            "Output": "ExampleNeoPixel"
         },
         {
             "Input": "TextOverlay",
