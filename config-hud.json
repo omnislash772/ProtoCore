@@ -166,7 +166,7 @@
                         "y": 40
                     },
                     {
-                        "name": "HUD_FaceResize",
+                        "name": "HUD_FaceResizeMirror",
                         "x": 120,
                         "y": 40
                     }
@@ -183,6 +183,17 @@
                     }
                 ],
                 "scale": 1.71875
+            }
+        },
+        {
+            "Name": "HUD_FaceResizeMirror",
+            "Type": "MirrorTransform",
+            "Args": {
+                "inputs": [
+                    {
+                        "name": "HUD_FaceResize"
+                    }
+                ]
             }
         }
     ]
