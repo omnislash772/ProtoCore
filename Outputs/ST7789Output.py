@@ -10,26 +10,15 @@ class ST7789Output(Output.Output):
         from luma.core.interface.serial import gpio_cs_spi # type: ignore
         from luma.core.render import canvas # type: ignore
         from luma.lcd.device import st7789 # type: ignore
-        import board # type: ignore
 
         self.serial = gpio_cs_spi(port=0, device=0, gpio_DC=self.dcPin, gpio_RST=self.rstPin, gpio_CS=self.csPin)
         self.device = st7789(self.serial, width=self.width + self.xBuffer, height=self.height + self.yBuffer, rotate=3)
-        self.nextFrame = None
-        self.renderThread = threading.Thread(target=self.ThreadLoop, args=(), daemon=True)
-        self.renderThread.start()
 
     def getName(self):
         return "ST7789 output"
     
     def Input(self, frame):
-        self.nextFrame = frame
-    
-    def ThreadLoop(self):
-        while True:
-            if self.nextFrame != None:
-                self.DrawFrame(self.nextFrame)
-                self.nextFrame = None
-            time.sleep(0.2)
+        self.DrawFrame(frame)
         
     def DrawFrame(self, frame):
         #if frame.width != self.width - self.xBuffer or frame.height != self.height - self.yBuffer:

@@ -89,6 +89,8 @@ def main(cfg, sharedDict):
     configGroups = ["DisplaySources", "InputSources", "Outputs"]
     objects = loadObjectList(configGroups, config)
     transforms = loadObjects(config["Transforms"])
+    sharedDict.update(getVars(objects))
+    time.sleep(5)
 
     while(True):
         sharedDict.update(getVars(objects))
@@ -97,13 +99,12 @@ def main(cfg, sharedDict):
         sendOutputs(objects, config, frames)
 
 def subMain(cfg, sharedDict):
-    proc = multiprocessing.Process(target=main, args=(cfg, sharedDict,), daemon=True)
+    proc = multiprocessing.Process(target=main, args=(cfg, sharedDict,), daemon=True, name=cfg.split(".")[0])
     proc.start()
 if __name__ == "__main__":
     manager = multiprocessing.Manager()
     sharedDict = manager.dict()
-    subMain("config.json", sharedDict)
-    time.sleep(2)
     subMain("config-hud.json", sharedDict)
+    subMain("config.json", sharedDict)
     while(True):
         time.sleep(1)

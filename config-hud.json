@@ -34,13 +34,6 @@
 
     "InputSources": [
         {
-            "Name": "BaseTimer",
-            "Type": "TimerSource",
-            "Args": {
-                "resolution": 4
-            }
-        },
-        {
             "Name": "CpuTempSource",
             "Type": "CpuTempSource"
         },
