@@ -83,23 +83,33 @@
     "Outputs": [
         {
             "Name": "FaceOutput",
-            "Type": "CvOutput",
+            "Type": "Hub75Output",
             "Args": {
-                "scale": 4
+                "rows": 32,
+                "cols": 64,
+                "chain_length": 2,
+                "parallel": 1,
+                "gpio_slowdown": 4
             }
         },
         {
-            "Name": "ExampleNeoPixel",
-            "Type": "CvOutput",
+            "Name": "NeoPixelOutput",
+            "Type": "NeoPixelOutput",
             "Args": {
-                "scale": 16
+                "pin": "D18",
+                "ledCount": 24,
+                "chainCount": 2
             }
         },
         {
             "Name": "HudOutput",
-            "Type": "CvOutput",
+            "Type": "ST7789Output",
             "Args": {
-                "scale": 2
+                "width": 280,
+                "height": 240,
+                "xBuffer": 20,
+                "yBuffer": 0,
+                "rotate": 3
             }
         }
     ],
@@ -111,7 +121,7 @@
         },
         {
             "Input": "LedScroll",
-            "Output": "ExampleNeoPixel"
+            "Output": "NeoPixelOutput"
         },
         {
             "Input": "TextOverlay",
@@ -152,38 +162,14 @@
                 ],
                 "texts": [
                     {
-                        "text": "{0[MicSensor.MaxVol]} Vol",
+                        "text": "{0[MicSensor.MaxVol]:2}%     {0[ExternalTempSource.Temp]:2}C     {0[CpuTempSource.Value]:2}C     {0[ExternalTempSource.Humid]:2}%",
                         "offsetX": 40,
                         "offsetY": 6,
                         "color": "#FFFFFF"
                     },
                     {
-                        "text": "{0[ExternalTempSource.Temp]}C",
-                        "offsetX": 90,
-                        "offsetY": 6,
-                        "color": "#FFFFFF"
-                    },
-                    {
-                        "text": "{0[CpuTempSource.Value]}C",
-                        "offsetX": 137,
-                        "offsetY": 6,
-                        "color": "#FFFFFF"
-                    },
-                    {
-                        "text": "{0[ExternalTempSource.Humid]}%",
-                        "offsetX": 178,
-                        "offsetY": 6,
-                        "color": "#FFFFFF"
-                    },
-                    {
-                        "text": "{0[ClockSource.Clock]}",
+                        "text": "{0[ClockSource.Clock]}    {0[ClockSource.Date]}",
                         "offsetX": 60,
-                        "offsetY": 23,
-                        "color": "#6D1EC3"
-                    },
-                    {
-                        "text": "{0[ClockSource.Date]}",
-                        "offsetX": 125,
                         "offsetY": 23,
                         "color": "#6D1EC3"
                     },

@@ -30,13 +30,6 @@
                 "fileName": "Images/led_scroll.gif",
                 "fps": 10
             }
-        },
-        {
-            "Name": "HudBackground",
-            "Type": "StaticImageSource",
-            "Args": {
-                "fileName": "Images/HUD/BG.png"
-            }
         }
     ],
 
@@ -65,51 +58,22 @@
                 "blinkMinDelay": 5,
                 "blinkMaxDelay": 7
             }
-        },
-        {
-            "Name": "CpuTempSource",
-            "Type": "CpuTempSource"
-        },
-        {
-            "Name": "ExternalTempSource",
-            "Type": "ExternalTempSource"
-        },
-        {
-            "Name": "ClockSource",
-            "Type": "ClockSource"
         }
     ],
 
     "Outputs": [
         {
             "Name": "FaceOutput",
-            "Type": "Hub75Output",
+            "Type": "CvOutput",
             "Args": {
-                "rows": 32,
-                "cols": 64,
-                "chain_length": 2,
-                "parallel": 1,
-                "gpio_slowdown": 2
+                "scale": 4
             }
         },
         {
-            "Name": "NeoPixelOutput",
-            "Type": "NeoPixelOutput",
+            "Name": "ExampleNeoPixel",
+            "Type": "CvOutput",
             "Args": {
-                "pin": 18,
-                "ledCount": 24,
-                "chainCount": 2
-            }
-        },
-        {
-            "Name": "HudOutput",
-            "Type": "ST7789Output",
-            "Args": {
-                "wdith": 280,
-                "height": 240,
-                "xBuffer": 20,
-                "yBuffer": 0,
-                "rotate": 3
+                "scale": 16
             }
         }
     ],
@@ -121,11 +85,7 @@
         },
         {
             "Input": "LedScroll",
-            "Output": "NeoPixelOutput"
-        },
-        {
-            "Input": "TextOverlay",
-            "Output": "HudOutput"
+            "Output": "ExampleNeoPixel"
         }
     ],
 
@@ -149,105 +109,6 @@
                         "y": 16
                     }
                 ]
-            }
-        },
-        {
-            "Name": "TextOverlay",
-            "Type": "MultiTextOverlayTransform",
-            "Args": {
-                "inputs": [
-                    {
-                        "name": "HudImageOverlay"
-                    }
-                ],
-                "texts": [
-                    {
-                        "text": "{0[MicSensor.MaxVol]} Vol",
-                        "offsetX": 40,
-                        "offsetY": 6,
-                        "color": "#FFFFFF"
-                    },
-                    {
-                        "text": "{0[ExternalTempSource.Temp]}C",
-                        "offsetX": 90,
-                        "offsetY": 6,
-                        "color": "#FFFFFF"
-                    },
-                    {
-                        "text": "{0[CpuTempSource.Value]}C",
-                        "offsetX": 137,
-                        "offsetY": 6,
-                        "color": "#FFFFFF"
-                    },
-                    {
-                        "text": "{0[ExternalTempSource.Humid]}%",
-                        "offsetX": 178,
-                        "offsetY": 6,
-                        "color": "#FFFFFF"
-                    },
-                    {
-                        "text": "{0[ClockSource.Clock]}",
-                        "offsetX": 60,
-                        "offsetY": 23,
-                        "color": "#6D1EC3"
-                    },
-                    {
-                        "text": "{0[ClockSource.Date]}",
-                        "offsetX": 125,
-                        "offsetY": 23,
-                        "color": "#6D1EC3"
-                    },
-                    {
-                        "text": "Schedule",
-                        "offsetX": 82,
-                        "offsetY": 136,
-                        "color": "#6D1EC3",
-                        "font": "Images/HUD/FreeSansBold.ttf",
-                        "fontSize": 16
-                    },
-                    {
-                        "text": "Joe Biden",
-                        "offsetX": 10,
-                        "offsetY": 151,
-                        "color": "#6D1EC3",
-                        "align": "center",
-                        "fontSize": 16
-                    }
-                ]
-                
-            }
-        },
-        {
-            "Name": "HudImageOverlay",
-            "Type": "OverlayTransform",
-            "Args": {
-                "inputs": [
-                    {
-                        "name": "HudBackground"
-                    },
-                    {
-                        "name": "HUD_FaceResize",
-                        "x": 10,
-                        "y": 40
-                    },
-                    {
-                        "name": "HUD_FaceResize",
-                        "x": 120,
-                        "y": 40
-                    }
-                ]
-            }
-        },
-        {
-            "Name": "HUD_FaceResize",
-            "Type": "ResizeTransform",
-            "Args": {
-                "inputs":[
-                    {
-                        "name": "FaceOverlay"
-                    }
-                ],
-                "scale": 1.71875
             }
         }
     ]

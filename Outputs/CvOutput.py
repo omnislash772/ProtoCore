@@ -1,12 +1,15 @@
 from Outputs import Output
 import numpy as np
 from PIL.Image import Resampling
+try:
+    import cv2
+except:
+    pass
 
 class CvOutput(Output.Output):
     
     def __init__(self, name, **kwargs):
         super().__init__(name, **kwargs)
-        import cv2
 
     def getName(self):
         return "Tk output"

@@ -33,6 +33,10 @@ def twos_complement(value,bits):
     return value
 
 
+def deviceAvailable():
+    device = usb.core.find(idVendor = Temperhum_Vendor, idProduct = Temperhum_Product)
+    return device != None
+
 def gethotmoist():
 # Try to find the Temperhum usb device
     device = usb.core.find(idVendor = Temperhum_Vendor, idProduct = Temperhum_Product)

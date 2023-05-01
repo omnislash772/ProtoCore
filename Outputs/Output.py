@@ -29,4 +29,4 @@ class Output():
     
     @abc.abstractclassmethod
     def getArgs(self):
-        pass
+        return {}

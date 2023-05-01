@@ -1,5 +1,6 @@
 import importlib
-import os, json
+import os, json, time
+import multiprocessing
 from DisplaySources import DisplaySource
 from InputSources import InputSource
 from Outputs import Output
@@ -81,15 +82,28 @@ def sendOutputs(objects, config, frames):
             continue
         objects[m["Output"]].Input(frames[m["Input"]])        
 
-if __name__ == "__main__":
+def main(cfg, sharedDict):
+    print(__name__)
     loadModules()
-    config = json.load(open("config.json"))
+    config = json.load(open(cfg))
     configGroups = ["DisplaySources", "InputSources", "Outputs"]
     objects = loadObjectList(configGroups, config)
     transforms = loadObjects(config["Transforms"])
+
     while(True):
-        vars = getVars(objects)
-        print(vars)
-        frames = getSourceFrames(objects, vars)
-        frames = runTransforms(transforms, frames, vars)
+        sharedDict.update(getVars(objects))
+        frames = getSourceFrames(objects, dict(sharedDict))
+        frames = runTransforms(transforms, frames, dict(sharedDict))
         sendOutputs(objects, config, frames)
+
+def subMain(cfg, sharedDict):
+    proc = multiprocessing.Process(target=main, args=(cfg, sharedDict,), daemon=True)
+    proc.start()
+if __name__ == "__main__":
+    manager = multiprocessing.Manager()
+    sharedDict = manager.dict()
+    subMain("config.json", sharedDict)
+    time.sleep(2)
+    subMain("config-hud.json", sharedDict)
+    while(True):
+        time.sleep(1)

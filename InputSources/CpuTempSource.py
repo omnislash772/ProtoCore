@@ -1,19 +1,18 @@
 from InputSources import InputSource
-import importlib.util
+import os
 
 class CpuTempSource(InputSource.InputSource):
     def __init__(self, name, **kwargs):
         super().__init__(name, **kwargs)
-        self.hasLib = False
-        if importlib.util.find_spec("gpiozero") != None:
-            from gpiozero import CPUTemperature # type: ignore
-            self.hasLib = True
+        self.hasFile = False
+        if os.path.isfile("/sys/class/thermal/thermal_zonae0/temp"):
+            self.hasFile = True
     
     def getValues(self):
-        cpuTemp = 42
-        if self.hasLib:
-            cpuTemp = int(CPUTemperature().temperature) # type: ignore
-        return {self.name + ".Value": cpuTemp}
+        temp = 99
+        if self.hasFile:
+            temp = int(int(open("/sys/class/thermal/thermal_zone0/temp").read(5))/1000)
+        return {self.name + ".Value": temp}
     
     def getArgs(self):
         return {}

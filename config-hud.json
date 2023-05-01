@@ -1,0 +1,196 @@
+{
+    "DisplaySources": [
+        {
+            "Name": "FaceBackground",
+            "Type": "StaticImageSource",
+            "Args": {
+                "fileName": "Images/face_BG.png"
+            }
+        },
+        {
+            "Name": "FaceEyes",
+            "Type": "AnimatedImageSource",
+            "Args": {
+                "fileName": "Images/face_eyes.gif",
+                "sourceVar": "EyesBlinkTimer.Frame"
+            }
+        },
+        {
+            "Name": "FaceMouth",
+            "Type": "AnimatedImageSource",
+            "Args": {
+                "fileName": "Images/face_mouth.gif",
+                "sourceVar": "MicSensor.State"
+            }
+        },
+        {
+            "Name": "HudBackground",
+            "Type": "StaticImageSource",
+            "Args": {
+                "fileName": "Images/HUD/BG.png"
+            }
+        }
+    ],
+
+    "InputSources": [
+        {
+            "Name": "BaseTimer",
+            "Type": "TimerSource",
+            "Args": {
+                "resolution": 4
+            }
+        },
+        {
+            "Name": "CpuTempSource",
+            "Type": "CpuTempSource"
+        },
+        {
+            "Name": "ExternalTempSource",
+            "Type": "ExternalTempSource"
+        },
+        {
+            "Name": "ClockSource",
+            "Type": "ClockSource"
+        }
+    ],
+
+    "Outputs": [
+        {
+            "Name": "HudOutput",
+            "Type": "CvOutput",
+            "Args": {
+                "scale": 2
+            }
+        }
+    ],
+
+    "Mappings": [
+        {
+            "Input": "TextOverlay",
+            "Output": "HudOutput"
+        }
+    ],
+
+    "Transforms": [
+        {
+            "Name": "FaceOverlay",
+            "Type": "OverlayTransform",
+            "Args":{
+                "inputs": [
+                    {
+                        "name": "FaceBackground"
+                    },
+                    {
+                        "name": "FaceEyes",
+                        "x": 0,
+                        "y": 0
+                    },
+                    {
+                        "name": "FaceMouth",
+                        "x": 0,
+                        "y": 16
+                    }
+                ]
+            }
+        },
+        {
+            "Name": "TextOverlay",
+            "Type": "MultiTextOverlayTransform",
+            "Args": {
+                "inputs": [
+                    {
+                        "name": "HudImageOverlay"
+                    }
+                ],
+                "texts": [
+                    {
+                        "text": "{0[MicSensor.MaxVol]} Vol",
+                        "offsetX": 40,
+                        "offsetY": 6,
+                        "color": "#FFFFFF"
+                    },
+                    {
+                        "text": "{0[ExternalTempSource.Temp]}C",
+                        "offsetX": 90,
+                        "offsetY": 6,
+                        "color": "#FFFFFF"
+                    },
+                    {
+                        "text": "{0[CpuTempSource.Value]}C",
+                        "offsetX": 137,
+                        "offsetY": 6,
+                        "color": "#FFFFFF"
+                    },
+                    {
+                        "text": "{0[ExternalTempSource.Humid]}%",
+                        "offsetX": 178,
+                        "offsetY": 6,
+                        "color": "#FFFFFF"
+                    },
+                    {
+                        "text": "{0[ClockSource.Clock]}",
+                        "offsetX": 60,
+                        "offsetY": 23,
+                        "color": "#6D1EC3"
+                    },
+                    {
+                        "text": "{0[ClockSource.Date]}",
+                        "offsetX": 125,
+                        "offsetY": 23,
+                        "color": "#6D1EC3"
+                    },
+                    {
+                        "text": "Schedule",
+                        "offsetX": 82,
+                        "offsetY": 136,
+                        "color": "#6D1EC3",
+                        "font": "Images/HUD/FreeSansBold.ttf",
+                        "fontSize": 16
+                    },
+                    {
+                        "text": "Joe Biden",
+                        "offsetX": 10,
+                        "offsetY": 151,
+                        "color": "#6D1EC3",
+                        "align": "center",
+                        "fontSize": 16
+                    }
+                ]
+                
+            }
+        },
+        {
+            "Name": "HudImageOverlay",
+            "Type": "OverlayTransform",
+            "Args": {
+                "inputs": [
+                    {
+                        "name": "HudBackground"
+                    },
+                    {
+                        "name": "HUD_FaceResize",
+                        "x": 10,
+                        "y": 40
+                    },
+                    {
+                        "name": "HUD_FaceResize",
+                        "x": 120,
+                        "y": 40
+                    }
+                ]
+            }
+        },
+        {
+            "Name": "HUD_FaceResize",
+            "Type": "ResizeTransform",
+            "Args": {
+                "inputs":[
+                    {
+                        "name": "FaceOverlay"
+                    }
+                ],
+                "scale": 1.71875
+            }
+        }
+    ]
+}
