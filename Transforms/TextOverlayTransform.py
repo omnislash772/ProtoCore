@@ -12,6 +12,8 @@ class TextOverlayTransform(Transform.Transform):
         else:
             self.font = ImageFont.truetype(self.font, self.fontSize)
         self.textError = False
+        if self.anchor == "none":
+            self.anchor = None
     
     def __hexColor(self, hexValue):
         if hexValue.startswith("#"):
@@ -31,7 +33,7 @@ class TextOverlayTransform(Transform.Transform):
         
         img = inputFrames[self.input].copy()
         frame = ImageDraw.Draw(img)
-        frame.text((self.offsetX, self.offsetY), text, self.__hexColor(self.color), font=self.font)
+        frame.text((self.offsetX, self.offsetY), text, self.__hexColor(self.color), font=self.font, align=self.align, anchor=self.anchor)
         return img
 
     def getArgs(self):
@@ -61,5 +63,13 @@ class TextOverlayTransform(Transform.Transform):
             "fontSize": {
                 "types": [int],
                 "default": 10
+            },
+            "align": {
+                "types": [str],
+                "default": "left"
+            },
+            "anchor": {
+                "types": [str],
+                "default": "none"
             }
         }

@@ -44,6 +44,43 @@
         {
             "Name": "ClockSource",
             "Type": "ClockSource"
+        },
+        {
+            "Name": "ScheduleSource",
+            "Type": "ScheduleSource",
+            "Args": {
+                "eventCount": 7,
+                "events": [
+                    {
+                        "start": "2023-05-03T12:30",
+                        "title": "Lunch with the bois-Maccas"
+                    },
+                    {
+                        "start": "2023-05-03T13:00",
+                        "title": "How to beep - Function room"
+                    },
+                    {
+                        "start": "2023-05-03T15:00",
+                        "title": "Furry Laser Tag- LazerZone"
+                    },
+                    {
+                        "start": "2023-05-03T18:00",
+                        "title": "Orgy- hotel room"
+                    },
+                    {
+                        "start": "2023-05-03T19:00",
+                        "title": "Dinner at the beach"
+                    },
+                    {
+                        "start": "2023-05-03T23:59",
+                        "title": "Let the dark harvest begin"
+                    },
+                    {
+                        "start": "2023-05-03T09:00",
+                        "title": "Ew sunlight"
+                    }
+                ]
+            }
         }
     ],
 
@@ -141,12 +178,14 @@
                         "fontSize": 16
                     },
                     {
-                        "text": "Joe Biden",
-                        "offsetX": 10,
-                        "offsetY": 151,
+                        "text": "{0[ScheduleSource.Schedule]}",
+                        "offsetX": 120,
+                        "offsetY": 160,
                         "color": "#6D1EC3",
                         "align": "center",
-                        "fontSize": 16
+                        "fontSize": 10,
+                        "anchor": "ma",
+                        "font": "Images/HUD/FreeSansBold.ttf"
                     }
                 ]
                 

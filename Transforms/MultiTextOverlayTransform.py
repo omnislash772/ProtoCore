@@ -30,7 +30,7 @@ class MultiTextOverlayTransform(Transform.Transform):
                     print(self.name + ": Bad Text Format - " + repr(e))
                     self.textError = True
             
-            frame.text((t["offsetX"], t["offsetY"]), text, self.__hexColor(t["color"]), font=t["font"], align=t["align"])
+            frame.text((t["offsetX"], t["offsetY"]), text, self.__hexColor(t["color"]), font=t["font"], align=t["align"], anchor=t["anchor"])
         return img
     
 
@@ -55,7 +55,8 @@ class MultiTextOverlayTransform(Transform.Transform):
                 "offsetY": text.get("offsetY", 0),
                 "text": text.get("text"),
                 "color": text.get("color", "#FFFFFF"),
-                "align": text.get("align", "left")
+                "align": text.get("align", "left"),
+                "anchor": text.get("anchor", None)
             })
         return texts
             
