@@ -29,6 +29,104 @@
             "Args": {
                 "fileName": "Images/HUD/BG.png"
             }
+        },
+        {
+            "Name": "FaceOmniStatic",
+            "Type": "StaticImageSource",
+            "Args": {
+                "fileName": "Images/omni_faces/0_defaultstatic.png"
+            }
+        },
+        {
+            "Name": "FaceOmniAnge",
+            "Type": "StaticImageSource",
+            "Args": {
+                "fileName": "Images/omni_faces/ange.png"
+            }
+        },
+        {
+            "Name": "FaceOmniBoxen",
+            "Type": "StaticImageSource",
+            "Args": {
+                "fileName": "Images/omni_faces/boxen.png"
+            }
+        },
+        {
+            "Name": "FaceOmniDed",
+            "Type": "StaticImageSource",
+            "Args": {
+                "fileName": "Images/omni_faces/ded.png"
+            }
+        },
+        {
+            "Name": "FaceOmniDizzy",
+            "Type": "StaticImageSource",
+            "Args": {
+                "fileName": "Images/omni_faces/dizzy1.png"
+            }
+        },
+        {
+            "Name": "FaceOmniFlat",
+            "Type": "StaticImageSource",
+            "Args": {
+                "fileName": "Images/omni_faces/flat.png"
+            }
+        },
+        {
+            "Name": "FaceOmniHappiaas",
+            "Type": "StaticImageSource",
+            "Args": {
+                "fileName": "Images/omni_faces/happiaas.png"
+            }
+        },
+        {
+            "Name": "FaceOmniHappiool",
+            "Type": "StaticImageSource",
+            "Args": {
+                "fileName": "Images/omni_faces/happiool.png"
+            }
+        },
+        {
+            "Name": "FaceOmniHappiths",
+            "Type": "StaticImageSource",
+            "Args": {
+                "fileName": "Images/omni_faces/happiths.png"
+            }
+        },
+        {
+            "Name": "FaceOmniOwo",
+            "Type": "StaticImageSource",
+            "Args": {
+                "fileName": "Images/omni_faces/owo.png"
+            }
+        },
+        {
+            "Name": "FaceOmniPowerful",
+            "Type": "StaticImageSource",
+            "Args": {
+                "fileName": "Images/omni_faces/powerful.png"
+            }
+        },
+        {
+            "Name": "FaceOmniSad",
+            "Type": "StaticImageSource",
+            "Args": {
+                "fileName": "Images/omni_faces/sad.png"
+            }
+        },
+        {
+            "Name": "FaceOmniSlep",
+            "Type": "StaticImageSource",
+            "Args": {
+                "fileName": "Images/omni_faces/slep.png"
+            }
+        },
+        {
+            "Name": "FaceOmniSmug",
+            "Type": "StaticImageSource",
+            "Args": {
+                "fileName": "Images/omni_faces/smug.png"
+            }
         }
     ],
 
@@ -208,6 +306,21 @@
                         "name": "HUD_FaceResizeMirror",
                         "x": 120,
                         "y": 40
+                    },
+                    {
+                        "name": "SoftSelectFaceSelector",
+                        "x": 87,
+                        "y": 96
+                    },
+                    {
+                        "name": "LeftSelectFaceSelector",
+                        "x": 14,
+                        "y": 96
+                    },
+                    {
+                        "name": "RightSelectFaceSelector",
+                        "x": 162,
+                        "y": 96
                     }
                 ]
             }
@@ -218,7 +331,7 @@
             "Args": {
                 "inputs":[
                     {
-                        "name": "FaceOverlay"
+                        "name": "MainFaceSelector"
                     }
                 ],
                 "scale": 1.71875
@@ -233,6 +346,104 @@
                         "name": "HUD_FaceResize"
                     }
                 ]
+            }
+        },
+        {
+            "Name": "MainFaceSelector",
+            "Type": "SelectTransform",
+            "Args": {
+                "inputs": [
+                    "FaceOverlay",
+                    "FaceOmniStatic",
+                    "FaceOmniAnge",
+                    "FaceOmniBoxen",
+                    "FaceOmniDed",
+                    "FaceOmniDizzy",
+                    "FaceOmniFlat",
+                    "FaceOmniHappiaas",
+                    "FaceOmniHappiool",
+                    "FaceOmniHappiths",
+                    "FaceOmniOwo",
+                    "FaceOmniPowerful",
+                    "FaceOmniSad",
+                    "FaceOmniSlep",
+                    "FaceOmniSmug"
+                ],
+                "select": 0
+            }
+        },
+        {
+            "Name": "SoftSelectFaceSelector",
+            "Type": "SelectTransform",
+            "Args": {
+                "inputs": [
+                    "FaceOverlay",
+                    "FaceOmniStatic",
+                    "FaceOmniAnge",
+                    "FaceOmniBoxen",
+                    "FaceOmniDed",
+                    "FaceOmniDizzy",
+                    "FaceOmniFlat",
+                    "FaceOmniHappiaas",
+                    "FaceOmniHappiool",
+                    "FaceOmniHappiths",
+                    "FaceOmniOwo",
+                    "FaceOmniPowerful",
+                    "FaceOmniSad",
+                    "FaceOmniSlep",
+                    "FaceOmniSmug"
+                ],
+                "select": 0
+            }
+        },
+        {
+            "Name": "LeftSelectFaceSelector",
+            "Type": "SelectTransform",
+            "Args": {
+                "inputs": [
+                    "FaceOverlay",
+                    "FaceOmniStatic",
+                    "FaceOmniAnge",
+                    "FaceOmniBoxen",
+                    "FaceOmniDed",
+                    "FaceOmniDizzy",
+                    "FaceOmniFlat",
+                    "FaceOmniHappiaas",
+                    "FaceOmniHappiool",
+                    "FaceOmniHappiths",
+                    "FaceOmniOwo",
+                    "FaceOmniPowerful",
+                    "FaceOmniSad",
+                    "FaceOmniSlep",
+                    "FaceOmniSmug"
+                ],
+                "select": 0,
+                "offset": -1
+            }
+        },
+        {
+            "Name": "RightSelectFaceSelector",
+            "Type": "SelectTransform",
+            "Args": {
+                "inputs": [
+                    "FaceOverlay",
+                    "FaceOmniStatic",
+                    "FaceOmniAnge",
+                    "FaceOmniBoxen",
+                    "FaceOmniDed",
+                    "FaceOmniDizzy",
+                    "FaceOmniFlat",
+                    "FaceOmniHappiaas",
+                    "FaceOmniHappiool",
+                    "FaceOmniHappiths",
+                    "FaceOmniOwo",
+                    "FaceOmniPowerful",
+                    "FaceOmniSad",
+                    "FaceOmniSlep",
+                    "FaceOmniSmug"
+                ],
+                "select": 0,
+                "offset": 1
             }
         }
     ]

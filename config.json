@@ -32,6 +32,104 @@
                 "fileName": "Images/led_scroll.gif",
                 "fps": 10
             }
+        },
+        {
+            "Name": "FaceOmniStatic",
+            "Type": "StaticImageSource",
+            "Args": {
+                "fileName": "Images/omni_faces/0_defaultstatic.png"
+            }
+        },
+        {
+            "Name": "FaceOmniAnge",
+            "Type": "StaticImageSource",
+            "Args": {
+                "fileName": "Images/omni_faces/ange.png"
+            }
+        },
+        {
+            "Name": "FaceOmniBoxen",
+            "Type": "StaticImageSource",
+            "Args": {
+                "fileName": "Images/omni_faces/boxen.png"
+            }
+        },
+        {
+            "Name": "FaceOmniDed",
+            "Type": "StaticImageSource",
+            "Args": {
+                "fileName": "Images/omni_faces/ded.png"
+            }
+        },
+        {
+            "Name": "FaceOmniDizzy",
+            "Type": "StaticImageSource",
+            "Args": {
+                "fileName": "Images/omni_faces/dizzy1.png"
+            }
+        },
+        {
+            "Name": "FaceOmniFlat",
+            "Type": "StaticImageSource",
+            "Args": {
+                "fileName": "Images/omni_faces/flat.png"
+            }
+        },
+        {
+            "Name": "FaceOmniHappiaas",
+            "Type": "StaticImageSource",
+            "Args": {
+                "fileName": "Images/omni_faces/happiaas.png"
+            }
+        },
+        {
+            "Name": "FaceOmniHappiool",
+            "Type": "StaticImageSource",
+            "Args": {
+                "fileName": "Images/omni_faces/happiool.png"
+            }
+        },
+        {
+            "Name": "FaceOmniHappiths",
+            "Type": "StaticImageSource",
+            "Args": {
+                "fileName": "Images/omni_faces/happiths.png"
+            }
+        },
+        {
+            "Name": "FaceOmniOwo",
+            "Type": "StaticImageSource",
+            "Args": {
+                "fileName": "Images/omni_faces/owo.png"
+            }
+        },
+        {
+            "Name": "FaceOmniPowerful",
+            "Type": "StaticImageSource",
+            "Args": {
+                "fileName": "Images/omni_faces/powerful.png"
+            }
+        },
+        {
+            "Name": "FaceOmniSad",
+            "Type": "StaticImageSource",
+            "Args": {
+                "fileName": "Images/omni_faces/sad.png"
+            }
+        },
+        {
+            "Name": "FaceOmniSlep",
+            "Type": "StaticImageSource",
+            "Args": {
+                "fileName": "Images/omni_faces/slep.png"
+            }
+        },
+        {
+            "Name": "FaceOmniSmug",
+            "Type": "StaticImageSource",
+            "Args": {
+                "fileName": "Images/omni_faces/smug.png"
+            }
         }
     ],
 
@@ -82,7 +180,7 @@
 
     "Mappings": [
         {
-            "Input": "FaceOverlay",
+            "Input": "MainFaceSelector",
             "Output": "FaceOutput"
         },
         {
@@ -111,6 +209,30 @@
                         "y": 16
                     }
                 ]
+            }
+        },
+        {
+            "Name": "MainFaceSelector",
+            "Type": "SelectTransform",
+            "Args": {
+                "inputs": [
+                    "FaceOverlay",
+                    "FaceOmniStatic",
+                    "FaceOmniAnge",
+                    "FaceOmniBoxen",
+                    "FaceOmniDed",
+                    "FaceOmniDizzy",
+                    "FaceOmniFlat",
+                    "FaceOmniHappiaas",
+                    "FaceOmniHappiool",
+                    "FaceOmniHappiths",
+                    "FaceOmniOwo",
+                    "FaceOmniPowerful",
+                    "FaceOmniSad",
+                    "FaceOmniSlep",
+                    "FaceOmniSmug"
+                ],
+                "select": 0
             }
         }
     ]

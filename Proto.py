@@ -65,8 +65,12 @@ def runTransforms(transforms, frames, vars):
             
             skip = False
             for input in t.inputs:
-                if input["name"] not in newFrames.keys():
-                    skip = True
+                if type(input) == dict:
+                    if input["name"] not in newFrames.keys():
+                        skip = True
+                elif type(input) == str:
+                    if input not in newFrames.keys():
+                        skip = True
             if not skip:
                 result = t.process(newFrames, vars)
                 newFrames.update({t.name: result})

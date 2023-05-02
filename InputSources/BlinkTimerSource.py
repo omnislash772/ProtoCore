@@ -22,7 +22,7 @@ class BlinkTimerSource(InputSource.InputSource):
             self.blinkTimer = t + (random.randint(self.blinkMinDelay * 10, self.blinkMaxDelay * 10)/10)
             frame = self.frameCount
 
-        return {self.name + ".Frame": frame}
+        return {self.name + ".Frame": frame%self.frameCount}
     
     def getArgs(self):
         return {

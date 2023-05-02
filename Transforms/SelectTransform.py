@@ -9,10 +9,10 @@ class SelectTransform(Transform.Transform):
     def process(self, inputFrames, vars):
         if type(self.select) == str:
             if self.select in vars.keys() and type(vars[self.select]) == int:
-                inputId = vars[self.select] % len(self.inputs)
+                inputId = (vars[self.select] + self.offset) % len(self.inputs)
                 return inputFrames[self.inputs[inputId]]
         elif type(self.select) == int:
-            return inputFrames[self.inputs[self.select % len(self.inputs)]]
+            return inputFrames[self.inputs[(self.select + self.offset) % len(self.inputs)]]
 
         return self.defaultFrame
 
@@ -23,5 +23,9 @@ class SelectTransform(Transform.Transform):
             },
             "select": {
                 "types": [int, str]
+            },
+            "offset": {
+                "types": [int],
+                "default": 0
             }
         }
