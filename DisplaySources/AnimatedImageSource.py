@@ -14,15 +14,24 @@ class AnimatedImageSource(DisplaySource.DisplaySource):
         self.image = ImageUtils.LoadImage(self.fileName)
 
         self.imageframes = []
-        for i in range(self.image.n_frames):
+        self.frameCount = self.image.n_frames
+        for i in range(self.frameCount):
             self.image.seek(i)
             self.imageframes.append(self.image.copy().convert("RGBA"))
     
     def Output(self, vars):
         if self.sourceVar == "default":
-            frame = int((time.time()-self.startTime)/(1/self.fps)) % self.image.n_frames
-            return self.imageframes[frame]
-        return self.imageframes[int(vars[self.sourceVar]) % self.image.n_frames]
+            if self.loopOverflow:
+                frame = int((time.time()-self.startTime)/(1/self.fps)) % self.frameCount
+                return self.imageframes[frame]
+            else:
+                frame = min(int((time.time()-self.startTime)/(1/self.fps)), self.frameCount)
+                return self.imageframes[frame]
+        
+        if self.loopOverflow:
+            return self.imageframes[int(vars[self.sourceVar]) % self.frameCount]
+        else:
+            return self.imageframes[min(int(vars[self.sourceVar]), self.frameCount)]
     
     def getName(self):
         return f"Static Image Source: '{self.fileName}'"
@@ -39,5 +48,9 @@ class AnimatedImageSource(DisplaySource.DisplaySource):
             "fps": {
                 "types": [int, float],
                 "default": 30
+            },
+            "loopOverflow": {
+                "types": [bool],
+                "default": True
             }
         }

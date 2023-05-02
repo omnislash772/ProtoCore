@@ -12,7 +12,8 @@
             "Type": "AnimatedImageSource",
             "Args": {
                 "fileName": "Images/face_eyes.gif",
-                "sourceVar": "EyesBlinkTimer.Frame"
+                "sourceVar": "EyesBlinkTimer.Frame",
+                "loopOverflow": false
             }
         },
         {
@@ -20,7 +21,8 @@
             "Type": "AnimatedImageSource",
             "Args": {
                 "fileName": "Images/face_mouth.gif",
-                "sourceVar": "MicSensor.State"
+                "sourceVar": "MicSensor.State",
+                "loopOverflow": false
             }
         },
         {
