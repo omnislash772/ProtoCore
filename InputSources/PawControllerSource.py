@@ -15,6 +15,7 @@ class PawControllerSource(InputSource.InputSource):
         self.softSelect = 0
         self.hardSelect = 0
         self.devCount = 0
+        self.locked = False
 
         self.findAndRegisterPaws()
     
@@ -30,6 +31,8 @@ class PawControllerSource(InputSource.InputSource):
 
     def processButtonPresses(self, buttonPresses):
         bc = len(buttonPresses)
+        if self.locked and not ("Lwrs" in buttonPresses or "Rwrs" in buttonPresses):
+            return
         if bc == 1: #Single button presses
             if "Lind" in buttonPresses:
                 self.softSelect -= 1
@@ -43,6 +46,10 @@ class PawControllerSource(InputSource.InputSource):
                 self.softSelect += 1
             elif "Rind" in buttonPresses:
                 self.softSelect += 1
+            elif "Lwrs" in buttonPresses:
+                self.locked = not self.locked
+            elif "Rwrs" in buttonPresses:
+                self.locked = not self.locked
     
     def getValues(self):
         events = []
@@ -73,6 +80,7 @@ class PawControllerSource(InputSource.InputSource):
         return {
             self.name + ".HardSelect": self.hardSelect,
             self.name + ".SoftSelect": self.softSelect,
+            self.name + ".Locked": int(self.locked)
             }
     
     def getArgs(self):
