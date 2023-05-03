@@ -148,34 +148,166 @@
             "Type": "ScheduleSource",
             "Args": {
                 "eventCount": 7,
-                "events": [
+                "events":[
                     {
-                        "start": "2023-05-03T12:30",
-                        "title": "Lunch with the bois-Maccas"
+                        "start": "2023-05-12T10:00:00",
+                        "title": "Artist alley - Level 1 Crowne"
                     },
                     {
-                        "start": "2023-05-03T13:00",
-                        "title": "How to beep - Function room"
+                        "start": "2023-05-12T11:30:00",
+                        "title": "Dealers Den Opens"
                     },
                     {
-                        "start": "2023-05-03T15:00",
-                        "title": "Furry Laser Tag- LazerZone"
+                        "start": "2023-05-12T12:00:00",
+                        "title": "My First Furcon - Main Stage"
                     },
                     {
-                        "start": "2023-05-03T18:00",
-                        "title": "Orgy- hotel room"
+                        "start": "2023-05-12T13:00:00",
+                        "title": "Fursuit Life Drawing - Panel 1"
                     },
                     {
-                        "start": "2023-05-03T19:00",
-                        "title": "Dinner at the beach"
+                        "start": "2023-05-12T13:00:00",
+                        "title": "Dealers Den Closed"
                     },
                     {
-                        "start": "2023-05-03T23:59",
-                        "title": "Let the dark harvest begin"
+                        "start": "2023-05-12T14:00:00",
+                        "title": "Dealers Den Open"
                     },
                     {
-                        "start": "2023-05-03T09:00",
-                        "title": "Ew sunlight"
+                        "start": "2023-05-12T14:00:00",
+                        "title": "Adler Animates - Main Stage"
+                    },
+                    {
+                        "start": "2023-05-12T14:30:00",
+                        "title": "Music Prod 101 - Panel 1"
+                    },
+                    {
+                        "start": "2023-05-12T15:30:00",
+                        "title": "Fursuit Charades - Main Stage"
+                    },
+                    {
+                        "start": "2023-05-12T16:00:00",
+                        "title": "Iso Boredom Busters - Panel 1"
+                    },
+                    {
+                        "start": "2023-05-12T17:00:00",
+                        "title": "Opening Words - Main Stage"
+                    },
+                    {
+                        "start": "2023-05-12T18:30:00",
+                        "title": "Fursuit Dance - Main Stage"
+                    },
+                    {
+                        "start": "2023-05-13T10:00:00",
+                        "title": "Fursuit Walk - Main Stage"
+                    },
+                    {
+                        "start": "2023-05-13T10:00:00",
+                        "title": "Artist Alley - Level 1 Crowne"
+                    },
+                    {
+                        "start": "2023-05-13T12:00:00",
+                        "title": "Building Furry Worlds - Main Stage"
+                    },
+                    {
+                        "start": "2023-05-13T12:00:00",
+                        "title": "How 2 Dance - Panel 2"
+                    },
+                    {
+                        "start": "2023-05-13T12:30:00",
+                        "title": "Self Reflection - Panel 1"
+                    },
+                    {
+                        "start": "2023-05-13T13:00:00",
+                        "title": "Dealers Den Open"
+                    },
+                    {
+                        "start": "2023-05-13T13:30:00",
+                        "title": "Furry DJing - Main Stage"
+                    },
+                    {
+                        "start": "2023-05-13T14:00:00",
+                        "title": "Furry-Able - Panel 1"
+                    },
+                    {
+                        "start": "2023-05-13T15:00:00",
+                        "title": "VR Furries - Main Stage"
+                    },
+                    {
+                        "start": "2023-05-13T15:30:00",
+                        "title": "Twitch Meetup - Panel 1"
+                    },
+                    {
+                        "start": "2023-05-13T16:30:00",
+                        "title": "Pub Trivia - Main Stage"
+                    },
+                    {
+                        "start": "2023-05-13T17:00:00",
+                        "title": "Dealers Den Close"
+                    },
+                    {
+                        "start": "2023-05-13T18:00:00",
+                        "title": "Furstep Floorwars - Main Stage"
+                    },
+                    {
+                        "start": "2023-05-14T10:00:00",
+                        "title": "Artist Alley Level 1 Crowne"
+                    },
+                    {
+                        "start": "2023-05-14T11:00:00",
+                        "title": "Dealers Den Open"
+                    },
+                    {
+                        "start": "2023-05-14T11:00:00",
+                        "title": "Bad Life Advice - Panel 2"
+                    },
+                    {
+                        "start": "2023-05-14T11:00:00",
+                        "title": "Fursuit Games - Main Stage"
+                    },
+                    {
+                        "start": "2023-05-14T11:00:00",
+                        "title": "Machine Learning - Panel 1"
+                    },
+                    {
+                        "start": "2023-05-14T13:00:00",
+                        "title": "Creator Crash Course - Panel 1"
+                    },
+                    {
+                        "start": "2023-05-14T13:30:00",
+                        "title": "DNDv - Main Stage"
+                    },
+                    {
+                        "start": "2023-05-14T14:30:00",
+                        "title": "Lenses & Effects - Panel 1"
+                    },
+                    {
+                        "start": "2023-05-14T15:00:00",
+                        "title": "Dealers Den CLOSED"
+                    },
+                    {
+                        "start": "2023-05-14T15:00:00",
+                        "title": "Talent Show - Main Stage "
+                    },
+                    {
+                        "start": "2023-05-14T16:00:00",
+                        "title": "Fighting Games - Panel 1"
+                    },
+                    {
+                        "start": "2023-05-14T16:00:00",
+                        "title": "VRC Meet Up - Panel 2"
+                    },
+                    {
+                        "start": "2023-05-14T16:30:00",
+                        "title": "Feedback Panel - Main Stage"
+                    },
+                    {
+                        "start": "2023-05-14T18:00:00",
+                        "title": "Closing Ceremony/Auction - Main Stage"
+                    },
+                    {
+                        "start": "2023-05-15T00:00:00",
+                        "title": "Artist Alley CLOSED"
                     }
                 ]
             }
