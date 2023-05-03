@@ -1,3 +1,6 @@
 luma.lcd
-bluetooth-battery
 sounddevice
+evdev
+PIL
+numpy
+cv2

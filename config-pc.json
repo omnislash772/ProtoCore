@@ -158,51 +158,22 @@
                 "blinkMinDelay": 5,
                 "blinkMaxDelay": 7
             }
-        },
-        {
-            "Name": "PawController",
-            "Type": "PawControllerSource",
-            "Args": {
-                "pawNames": [
-                    "Left ProtoPawb",
-                    "Right ProtoPawb"
-                ],
-                "buttons": {
-                    "304": "Lind",
-                    "305": "Lmid",
-                    "306": "Lrng",
-                    "307": "Lpnk",
-                    "308": "Lwrs",
-                    
-                    "309": "Rind",
-                    "310": "Rmid",
-                    "311": "Rrng",
-                    "312": "Rpnk",
-                    "313": "Rwrs"
-                }
-            }
         }
     ],
 
     "Outputs": [
         {
             "Name": "FaceOutput",
-            "Type": "Hub75Output",
+            "Type": "CvOutput",
             "Args": {
-                "rows": 32,
-                "cols": 64,
-                "chain_length": 2,
-                "parallel": 1,
-                "gpio_slowdown": 4
+                "scale": 4
             }
         },
         {
-            "Name": "NeoPixelOutput",
-            "Type": "NeoPixelOutput",
+            "Name": "ExampleNeoPixel",
+            "Type": "CvOutput",
             "Args": {
-                "pin": "D18",
-                "ledCount": 24,
-                "chainCount": 2
+                "scale": 16
             }
         }
     ],
@@ -214,7 +185,7 @@
         },
         {
             "Input": "LedScroll",
-            "Output": "NeoPixelOutput"
+            "Output": "ExampleNeoPixel"
         }
     ],
 
@@ -261,7 +232,7 @@
                     "FaceOmniSlep",
                     "FaceOmniSmug"
                 ],
-                "select": "PawController.HardSelect"
+                "select": 0
             }
         }
     ]

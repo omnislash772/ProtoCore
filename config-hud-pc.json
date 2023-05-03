@@ -185,13 +185,9 @@
     "Outputs": [
         {
             "Name": "HudOutput",
-            "Type": "ST7789Output",
+            "Type": "CvOutput",
             "Args": {
-                "width": 280,
-                "height": 240,
-                "xBuffer": 20,
-                "yBuffer": 0,
-                "rotate": 3
+                "scale": 2
             }
         }
     ],
@@ -373,7 +369,7 @@
                     "FaceOmniSlep",
                     "FaceOmniSmug"
                 ],
-                "select": "PawController.HardSelect"
+                "select": 0
             }
         },
         {
@@ -397,7 +393,7 @@
                     "FaceOmniSlep",
                     "FaceOmniSmug"
                 ],
-                "select": "PawController.SoftSelect"
+                "select": 0
             }
         },
         {
@@ -421,7 +417,7 @@
                     "FaceOmniSlep",
                     "FaceOmniSmug"
                 ],
-                "select": "PawController.SoftSelect",
+                "select": 0,
                 "offset": -1
             }
         },
@@ -446,7 +442,7 @@
                     "FaceOmniSlep",
                     "FaceOmniSmug"
                 ],
-                "select": "PawController.SoftSelect",
+                "select": 0,
                 "offset": 1
             }
         }
