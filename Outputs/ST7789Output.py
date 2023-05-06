@@ -12,7 +12,7 @@ class ST7789Output(Output.Output):
         from luma.lcd.device import st7789 # type: ignore
 
         self.serial = gpio_cs_spi(port=0, device=0, gpio_DC=self.dcPin, gpio_RST=self.rstPin, gpio_CS=self.csPin)
-        self.device = st7789(self.serial, width=self.width + self.xBuffer, height=self.height + self.yBuffer, rotate=3)
+        self.device = st7789(self.serial, width=self.width + self.xBuffer, height=self.height + self.yBuffer, rotate=self.rotate)
 
     def getName(self):
         return "ST7789 output"
