@@ -1,6 +1,5 @@
 luma.lcd
 sounddevice
 evdev
-PIL
+pillow
 numpy
-cv2
