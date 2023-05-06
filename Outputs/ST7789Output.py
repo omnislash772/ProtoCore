@@ -12,7 +12,7 @@ class ST7789Output(Output.Output):
         from luma.lcd.device import st7789 # type: ignore
 
         self.serial = gpio_cs_spi(port=0, device=0, gpio_DC=self.dcPin, gpio_RST=self.rstPin, gpio_CS=self.csPin)
-        self.device = st7789(self.serial, width=self.width + self.xBuffer, height=self.height + self.yBuffer, rotate=self.rotate)
+        self.device = st7789(self.serial, width=self.width + abs(self.xBuffer), height=self.height + abs(self.yBuffer), rotate=self.rotate)
 
     def getName(self):
         return "ST7789 output"
@@ -21,19 +21,17 @@ class ST7789Output(Output.Output):
         self.DrawFrame(frame)
         
     def DrawFrame(self, frame):
-        #if frame.width != self.width - self.xBuffer or frame.height != self.height - self.yBuffer:
-        #    frame = frame.resize((self.width, self.height), resample=Resampling.NEAREST)
         if self.xBuffer == 0 and self.yBuffer == 0:
             self.device.display(frame)
             return
 
         if self.rotate % 2 == 1: #Is odd
-            biggerFrame = Image.new(mode="RGB", size=(self.height + self.yBuffer, self.width + self.xBuffer))
-            biggerFrame.paste(frame, (self.yBuffer, self.xBuffer))
+            biggerFrame = Image.new(mode="RGB", size=(self.height + abs(self.yBuffer), self.width + abs(self.xBuffer)))
+            biggerFrame.paste(frame, (max(self.yBuffer, 0), max(self.xBuffer, 0)))
             self.device.display(biggerFrame)
         else:
-            biggerFrame = Image.new(mode="RGB", size=(self.width + self.xBuffer, self.height + self.yBuffer))
-            biggerFrame.paste(frame, (self.xBuffer, self.yBuffer))
+            biggerFrame = Image.new(mode="RGB", size=(self.width + abs(self.xBuffer), self.height + abs(self.yBuffer)))
+            biggerFrame.paste(frame, (max(self.xBuffer, 0), max(self.yBuffer, 0)))
             self.device.display(biggerFrame)
     
     def getArgs(self):
