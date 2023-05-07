@@ -5,7 +5,7 @@ class CpuTempSource(InputSource.InputSource):
     def __init__(self, name, **kwargs):
         super().__init__(name, **kwargs)
         self.hasFile = False
-        if os.path.isfile("/sys/class/thermal/thermal_zonae0/temp"):
+        if os.path.isfile("/sys/class/thermal/thermal_zone0/temp"):
             self.hasFile = True
     
     def getValues(self):
