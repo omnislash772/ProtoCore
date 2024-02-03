@@ -56,7 +56,8 @@ class MultiTextOverlayTransform(Transform.Transform):
                 "text": text.get("text"),
                 "color": text.get("color", "#FFFFFF"),
                 "align": text.get("align", "left"),
-                "anchor": text.get("anchor", None)
+                "anchor": text.get("anchor", None),
+                "encoding": text.get("encoding", "utf-8")
             })
         return texts
             

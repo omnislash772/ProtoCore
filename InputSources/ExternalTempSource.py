@@ -10,8 +10,8 @@ class ExternalTempSource(InputSource.InputSource):
         super().__init__(name, **kwargs)
     
     def getValues(self):
-        temp = 99
-        humid = 99
+        temp = "??"
+        humid = "??"
         if importlib.util.find_spec("usb") != None and UsbTempProbe.deviceAvailable():
             temp, humid = UsbTempProbe.gethotmoist() # type: ignore
         return {
@@ -19,4 +19,24 @@ class ExternalTempSource(InputSource.InputSource):
             self.name + ".Humid": humid}
     
     def getArgs(self):
-        return {}
+        return {
+            "Module": {
+                "Name": "ExternalTempSource",
+                "info": "Module to allow input of TemperHUM temperature sensor data",
+                "class": "inputmodule", 
+                "types": [int, float],
+                "default": 1
+            },
+            "Temp": {
+                "info":"Returns the current temperature reading in celcius",
+                "types": [int, float],
+                "class": "output",
+                "default": 1
+            },
+            "Humid": {
+                "info":"Returns the current temperature as a percentage value",
+                "types": [int, float],
+                "class": "output",
+                "default": 1
+            }
+        }

@@ -12,10 +12,13 @@ def loadModules():
     for m in moduleSources:
         files = list(filter(lambda o: o.endswith(".py"), os.listdir(m)))
         for f in files:
-            print(f"Loading {f}")
-            fn = f[:-3]
-            globals()[fn] = getattr(importlib.import_module(".."+fn, m + "."), fn)
-
+            #print(f"Loading {f}")
+            try:
+                fn = f[:-3]
+                globals()[fn] = getattr(importlib.import_module(".."+fn, m + "."), fn)
+            except:
+                print(f"Failed to load {f}")
+                pass
 def loadObjects(objectDesc):
     objects = {}
     for o in objectDesc:
@@ -26,11 +29,11 @@ def loadObjects(objectDesc):
             print(f"Object {o['Name']} specified invalid type: {o['Type']}")
             continue
 
-        print(f"Loading {o['Name']}")
+        #print(f"Loading {o['Name']}")
         try:
             args = o.get("Args", {})
             objects[o["Name"]] = globals()[o["Type"]](o["Name"], **args)
-            print(f"Loaded Object: {o['Name']}")
+            #print(f"Loaded Object: {o['Name']}")
         except Exception as e:
             print(f"Failed to load Object: {o['Name']}: {repr(e)}")
     return objects
@@ -96,7 +99,7 @@ def main(cfg, sharedDict):
     objects = loadObjectList(configGroups, config)
     transforms = loadObjects(config["Transforms"])
     sharedDict.update(getVars(objects))
-    time.sleep(5)
+    time.sleep(2)
 
     while(True):
         sharedDict.update(getVars(objects))
@@ -110,7 +113,10 @@ def subMain(cfg, sharedDict):
 if __name__ == "__main__":
     manager = multiprocessing.Manager()
     sharedDict = manager.dict()
-    subMain("config-hud.json", sharedDict)
-    subMain("config.json", sharedDict)
+    try:
+     subMain("config-hud-pc.json", sharedDict)
+    except Exception as e:
+     print("ERROR WITH HUD CONFIG")
+    subMain("config-pc.json", sharedDict)
     while(True):
         time.sleep(1)

@@ -367,37 +367,51 @@
                         "text": "{0[MicSensor.MaxVol]} Vol",
                         "offsetX": 40,
                         "offsetY": 6,
-                        "color": "#FFFFFF"
+                        "color": "#FFFFFF",
+                        "font": "Images/HUD/FreeSansBold.ttf",
+                        "fontSize": 12,
+                        "encoding" :"utf-8"
                     },
                     {
-                        "text": "{0[ExternalTempSource.Temp]}C",
+                        "text": "{0[ExternalTempSource.Temp]}\u2103",
                         "offsetX": 90,
                         "offsetY": 6,
-                        "color": "#FFFFFF"
+                        "color": "#FFFFFF",
+                        "font": "Images/HUD/FreeSansBold.ttf",
+                        "fontSize": 12,
+                        "encoding" :"utf-8"
                     },
                     {
-                        "text": "{0[CpuTempSource.Value]}C",
+                        "text": "{0[CpuTempSource.Value]}\u2103",
                         "offsetX": 137,
                         "offsetY": 6,
-                        "color": "#FFFFFF"
+                        "color": "#FFFFFF",
+                        "font": "Images/HUD/FreeSansBold.ttf",
+                        "fontSize": 12
                     },
                     {
                         "text": "{0[ExternalTempSource.Humid]}%",
                         "offsetX": 178,
                         "offsetY": 6,
-                        "color": "#FFFFFF"
+                        "color": "#FFFFFF",
+                        "font": "Images/HUD/FreeSansBold.ttf",
+                        "fontSize": 12
                     },
                     {
                         "text": "{0[ClockSource.Clock]}",
                         "offsetX": 60,
                         "offsetY": 23,
-                        "color": "#6D1EC3"
+                        "color": "#6D1EC3",
+                        "font": "Images/HUD/FreeSansBold.ttf",
+                        "fontSize": 12
                     },
                     {
                         "text": "{0[ClockSource.Date]}",
                         "offsetX": 125,
                         "offsetY": 23,
-                        "color": "#6D1EC3"
+                        "color": "#6D1EC3",
+                        "font": "Images/HUD/FreeSansBold.ttf",
+                        "fontSize": 12
                     },
                     {
                         "text": "Schedule",

@@ -18,16 +18,40 @@ class ScheduleSource(InputSource.InputSource):
             }
     
     def getArgs(self):
+        #The below default ARGS should not be changed here, these should be defined in the configuration Json when this module is being defined
         return {
+            "Module": {
+                "Name": "ScheduleSource",
+                "info": "Module that shows the next X number of events based on the current time",
+                "class": "inputmodule", 
+                "types": [int, float],
+                "default": 1
+            },
+            #
             "events": {
+                "info": "The list of events as parsed from Json",
+                "class": "input", 
                 "types": [list]
             },
+            #
             "eventCount": {
+                "info": "How many events to display at one time",
+                "class": "input", 
                 "types": [int],
-                "default": 2
+                "default": 4
             },
+            #Define the multiline delimiting character to put text onto a new line
             "delemiter": {
+                "info": "Define the multiline delimiting character to put text onto a new line",
+                "class": "input", 
                 "types": [str],
                 "default": "\n"
-            }
+            },
+            "Schedule": {
+                "info": "Current list of events limited by eventCount",
+                "class": "output", 
+                "types": [int],
+                "default": 0
+
+            },
         }

@@ -21,6 +21,8 @@ class Hub75Output(Output.Output):
         return "Hub75Output"
     
     def Input(self, frame):
+        if self.flip == 1:
+           frame = frame.transpose(Image.FLIP_TOP_BOTTOM)
         if frame.width != self.cols*2 and frame.width == self.cols:
             if self.mirrorType == 0:
                 img_out = Image.new('RGB', (frame.width*2, frame.height))
@@ -34,34 +36,47 @@ class Hub75Output(Output.Output):
                 self.matrix.SetImage(img_out)
         else:
             if frame.width == self.cols*2:
-                self.matrix.SetImage(frame)
+                self.matrix.SetImage(frame.convert('RGB'))
             else:
-                self.matrix.SetImage(frame.copy().resize(self.cols*2, self.rows))
+                self.matrix.SetImage(frame.copy().resize((self.cols*2, self.rows)).convert('RGB'))
     
     def getArgs(self):
+        #The below default ARGS should not be changed here, these should be defined in the configuration Json when this module is being defined
         return {
+            #Rows on the Hub75 panel, should equal the size of one panel in most cases
             "rows": {
                 "types": [int]
             },
+            #Collums on the Hub75 panel, should equal the size of one panel in most cases
             "cols": {
                 "types": [int]
             },
+            #how many Hub75 panels are connected in the chain
             "chain_length": {
                 "types": [int],
                 "default": 2
             },
+            #How many Paralel chains are in your configuration,
             "parallel": {
                 "types": [int],
                 "default": 1
             },
+            #used to tune the panels to reduce glitchy effects, adjust as needed
             "gpio_slowdown": {
                 "types": [int],
                 "default": 2
             },
+            #Used to define what hat is used, in most cases the default is correct, other configurations are untested.
             "hardware_mapping": {
                 "types": [str],
                 "default": "adafruit-hat"
             },
+            #Define if the panels need to be flipped. good to change if your face is showing upside down
+            "flip": {
+                "types": [int],
+                "default": 0
+            },
+            #Changes the mirroring for the faces, Some panels seem to display images pre mirrored and this fixes that if set to 1
             "mirrorType": {
                 "types": [int],
                 "default": 0

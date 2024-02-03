@@ -20,7 +20,9 @@ class CvOutput(Output.Output):
         cv2.waitKey(1) # type: ignore
     
     def getArgs(self):
+        #The below default ARGS should not be changed here, these should be defined in the configuration Json when this module is being defined
         return {
+            #Defines the pixel scale for the display outputs, can be set per output.
             "scale": {
                 "types": [float, int],
                 "default": 1

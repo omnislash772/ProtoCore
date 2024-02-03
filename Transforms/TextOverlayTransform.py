@@ -10,7 +10,7 @@ class TextOverlayTransform(Transform.Transform):
         if self.font == "default":
             self.font = ImageFont.load_default()
         else:
-            self.font = ImageFont.truetype(self.font, self.fontSize)
+            self.font = ImageFont.truetype(self.font, self.fontSize, self.encoding)
         self.textError = False
         if self.anchor == "none":
             self.anchor = None
@@ -71,5 +71,9 @@ class TextOverlayTransform(Transform.Transform):
             "anchor": {
                 "types": [str],
                 "default": "none"
+            },
+            "encoding": {
+                "types": [str],
+                "default": "utf-8"
             }
         }
